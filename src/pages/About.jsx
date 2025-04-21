@@ -3,6 +3,7 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 import { Users, Target, Trophy, Clock, Heart } from 'lucide-react';
 import ScrollAnimation from '../components/ScrollAnimation';
+import sir from '../Assets/vj-sir.jpg';
 
 const About = () => {
   const milestones = [
@@ -185,7 +186,7 @@ const About = () => {
       </section>
       
       {/* Team Section */}
-      <section className="section-padding bg-gray-50">
+      {/* <section className="section-padding bg-gray-50">
         <div className="container-custom">
           <ScrollAnimation>
             <div className="text-center max-w-3xl mx-auto mb-16">
@@ -204,7 +205,7 @@ const About = () => {
                 name: 'Vijay Jambre',
                 role: 'Managing Director',
                 bio: 'With over 15 years in the fitness industry, Vijay brings expertise and vision to our club.',
-                image: 'https://images.unsplash.com/photo-1506794778202-cad84cf45f1d?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+                image: sir
               },
               {
                 name: 'Preeti Dhumale',
@@ -221,13 +222,14 @@ const About = () => {
             ].map((member, index) => (
               <ScrollAnimation key={index} delay={index * 100}>
                 <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
-                  <div className="h-64 overflow-hidden">
-                    <img 
-                      src={member.image} 
-                      alt={member.name} 
-                      className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
-                    />
-                  </div>
+                    <div className="aspect-[4/3] overflow-hidden">
+                      <img 
+                        src={member.image} 
+                        alt={member.name} 
+                        className="w-full h-full object-cover transition-transform duration-500"
+                      />
+                    </div>
+
                   <div className="p-6">
                     <h3 className="text-xl font-bold mb-1">{member.name}</h3>
                     <p className="text-fitness-purple mb-3">{member.role}</p>
@@ -238,7 +240,59 @@ const About = () => {
             ))}
           </div>
         </div>
-      </section>
+      </section> */}
+
+
+      <section className="section-padding bg-gray-50">
+  <div className="container-custom">
+    <ScrollAnimation>
+      <div className="text-center max-w-3xl mx-auto mb-16">
+        <h2 className="text-3xl font-bold mb-6">
+          Our <span className="text-transparent bg-clip-text bg-gradient-fitness">Leadership Team</span>
+        </h2>
+        <p className="text-gray-600">
+          Meet the visionaries and experts behind our fitness club.
+        </p>
+      </div>
+    </ScrollAnimation>
+
+    <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+      {[
+        {
+          name: 'Vijay Jambre',
+          role: 'Managing Director',
+          bio: 'With over 15 years in the fitness industry, Vijay brings expertise and vision to our club.',
+          image: sir
+        },
+        {
+          name: 'Preeti Dhumale',
+          role: 'Operations Director',
+          bio: 'Preeti ensures smooth operations across all our facilities with attention to detail and excellence.',
+          image: 'https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80'
+        }
+      ].map((member, index) => (
+        <ScrollAnimation key={index} delay={index * 100}>
+          <div className="bg-white rounded-lg overflow-hidden shadow-md hover:shadow-xl transition-all duration-300 group">
+            <div className="relative pb-3/4 w-full">
+              <img
+                src={member.image}
+                alt={member.name}
+                className="absolute inset-0 w-full h-full object-cover object-center"
+              />
+            </div>
+
+            <div className="p-6">
+              <h3 className="text-xl font-bold mb-1">{member.name}</h3>
+              <p className="text-fitness-purple mb-3">{member.role}</p>
+              <p className="text-gray-600">{member.bio}</p>
+            </div>
+          </div>
+        </ScrollAnimation>
+      ))}
+    </div>
+  </div>
+</section>
+
       
       {/* CTA Section */}
       <section className="py-20 bg-gradient-to-r from-fitness-purple to-fitness-blue text-white">

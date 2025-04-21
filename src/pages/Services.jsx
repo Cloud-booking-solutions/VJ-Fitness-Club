@@ -53,23 +53,23 @@ const Services = () => {
       ],
       packages: [
         {
-          name: 'Basic',
-          price: '₹1,500',
+          name: 'Gym Membership',
+          price: '₹5000',
           duration: 'per month',
           features: ['Gym access', 'Basic equipment', 'Locker usage', 'Fitness assessment']
         },
         {
-          name: 'Premium',
-          price: '₹2,500',
+          name: 'Group X Membership',
+          price: '₹3000',
           duration: 'per month',
           features: ['Full gym access', 'Steam room', '2 PT sessions/month', 'Nutrition consultation', 'All group classes']
         },
-        {
-          name: 'Elite',
-          price: '₹4,000',
-          duration: 'per month',
-          features: ['24/7 gym access', 'Private coaching', 'Unlimited PT sessions', 'Custom nutrition plan', 'CrossFit access', 'All premium amenities']
-        }
+        // {
+        //   name: 'Elite',
+        //   price: '₹4,000',
+        //   duration: 'per month',
+        //   features: ['24/7 gym access', 'Private coaching', 'Unlimited PT sessions', 'Custom nutrition plan', 'CrossFit access', 'All premium amenities']
+        // }
       ],
       offers: [
         'Join with a friend and get 10% off both memberships',

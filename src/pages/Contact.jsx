@@ -444,7 +444,7 @@ const Contact = () => {
 
           
           {/* Video Section */}
-          <div className="mt-16">
+          {/* <div className="mt-16">
             <ScrollAnimation>
               <h2 className="text-3xl font-bold mb-8 text-center">
                 Take a <span className="text-transparent bg-clip-text bg-gradient-fitness">Virtual Tour</span>
@@ -464,7 +464,7 @@ const Contact = () => {
                 ></iframe>
               </div>
             </div>
-          </div>
+          </div> */}
         </div>
       </section>
     </div>

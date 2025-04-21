@@ -6,12 +6,13 @@ import { HoverCard, HoverCardTrigger, HoverCardContent } from "@/components/ui/h
 
 const Home = () => {
   const services = [
-    { title: 'Gym', icon: DumbbellIcon, description: 'State-of-the-art equipment, personal training, and group classes.' },
-    { title: 'Swimming Pool', icon: Bath, description: 'Olympic-sized pool with professional coaching and amenities.' },
-    { title: 'Cricket', icon: Trophy, description: 'Professional cricket coaching with top-notch facilities.' },
-    { title: 'Football', icon: Volleyball, description: 'Football training with expert coaches on premium turf.' },
-    { title: 'Turf', icon: GraduationCap, description: 'Premium synthetic turf for various sporting activities.' }
+    { id: 'gym', title: 'Gym', icon: DumbbellIcon, description: 'State-of-the-art equipment, personal training, and group classes.' },
+    { id: 'swimming', title: 'Swimming Pool', icon: Bath, description: 'Olympic-sized pool with professional coaching and amenities.' },
+    { id: 'cricket', title: 'Cricket', icon: Trophy, description: 'Professional cricket coaching with top-notch facilities.' },
+    { id: 'football', title: 'Football', icon: Volleyball, description: 'Football training with expert coaches on premium turf.' },
+    { id: 'turf', title: 'Turf', icon: GraduationCap, description: 'Premium synthetic turf for various sporting activities.' }
   ];
+  
   
   return (
     <div className="bg-with-logo">
@@ -51,49 +52,48 @@ const Home = () => {
     </ScrollAnimation>
 
     <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-      {services.map((service, index) => (
-        <ScrollAnimation key={service.title} delay={index * 100}>
-          <div className="relative group h-full">
-            {/* Card content */}
-            <div className="bg-white rounded-lg p-8 shadow-md transition-all duration-300 group-hover:opacity-0 group-hover:scale-95 border-b-4 border-red-600 hover:border-red-800 z-10 relative">
-              <div className="h-14 w-14 rounded-full bg-red-600/10 flex items-center justify-center mb-6 group-hover:bg-gradient-to-r from-red-600 to-red-800 transition-all duration-300">
-                <service.icon className="h-7 w-7 text-red-700 group-hover:text-white transition-all duration-300" />
-              </div>
-              <h3 className="text-xl font-bold mb-3">{service.title}</h3>
-              <p className="text-gray-600 mb-6">{service.description}</p>
-              <Link
-                to={`/services#${service.title.toLowerCase()}`}
-                className="inline-flex items-center text-red-600 font-medium group-hover:translate-x-2 transition-all duration-300"
-              >
-                Learn more <ArrowRight className="ml-2 h-4 w-4" />
-              </Link>
-            </div>
+  {services.map((service, index) => (
+    <ScrollAnimation key={service.title} delay={index * 100}>
+      <div className="relative h-full bg-white rounded-lg p-8 shadow-md border-b-4 border-red-600 hover:border-red-800 transition-all duration-300">
+        {/* Always-visible image */}
+        <div className="mb-6">
+          <img 
+            src={`${
+              service.id === 'gym' 
+                ? 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' 
+                : service.id === 'swimming' 
+                ? 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' 
+                : service.id === 'cricket' 
+                ? 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' 
+                : service.id === 'football' 
+                ? 'https://tse1.mm.bing.net/th?id=OIP.ONUF2gIsOHqmILSozWH12AHaE8&pid=Api&P=0&h=220' 
+                : 'https://5.imimg.com/data5/SELLER/Default/2021/11/VH/DO/LX/15402353/cricket-pitch-astro-turf-1000x1000.jpg'
+            }`} 
+            alt={service.title} 
+            className="rounded-lg shadow-md w-full h-48 object-cover"
+          />
+        </div>
 
-            {/* Image on hover */}
-            <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-lg overflow-hidden z-20">
-            <img 
-  src={`${
-    service.id === 'gym' 
-      ? 'https://images.unsplash.com/photo-1534438327276-14e5300c3a48?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' 
-      : service.id === 'swimming' 
-      ? 'https://images.unsplash.com/photo-1575429198097-0414ec08e8cd?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' 
-      : service.id === 'cricket' 
-      ? 'https://images.unsplash.com/photo-1531415074968-036ba1b575da?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80' 
-      : service.id === 'football' 
-      ? 'https://tse1.mm.bing.net/th?id=OIP.ONUF2gIsOHqmILSozWH12AHaE8&pid=Api&P=0&h=220' 
-      : 'https://5.imimg.com/data5/SELLER/Default/2021/11/VH/DO/LX/15402353/cricket-pitch-astro-turf-1000x1000.jpg'
-  }`} 
-  alt={service.title} 
-  className="rounded-lg shadow-xl w-full h-auto object-cover"
-/>
+        {/* Icon and content */}
+        <div className="h-14 w-14 rounded-full bg-red-600/10 flex items-center justify-center mb-6">
+          <service.icon className="h-7 w-7 text-red-700" />
+        </div>
+        <h3 className="text-xl font-bold mb-3">{service.title}</h3>
+        <p className="text-gray-600 mb-6">{service.description}</p>
+        <Link
+          to={`/services#${service.title.toLowerCase()}`}
+          className="inline-flex items-center text-red-600 font-medium hover:translate-x-2 transition-all duration-300"
+        >
+          Learn more <ArrowRight className="ml-2 h-4 w-4" />
+        </Link>
+      </div>
+    </ScrollAnimation>
+  ))}
+</div>
 
-            </div>
-          </div>
-        </ScrollAnimation>
-      ))}
-    </div>
   </div>
 </section>
+
 
       
       {/* About Preview */}
